@@ -36,6 +36,7 @@
               pkgs.jq
               pkgs.lazygit
               pkgs.nixpkgs-fmt
+              pkgs.spotify
               pkgs.tmux
               pkgs.vscode
             ];
@@ -49,6 +50,10 @@
             
             system.defaults.dock.autohide = true;
             system.defaults.finder.AppleShowAllExtensions = true;
+            system.defaults.finder.ShowPathbar = true;
+            system.defaults.finder.ShowStatusBar = true;
+            system.defaults.finder._FXShowPosixPathInTitle = true;
+
             system.defaults.NSGlobalDomain.AppleShowAllExtensions = true;
             system.defaults.NSGlobalDomain.InitialKeyRepeat = 14;
             system.defaults.NSGlobalDomain.KeyRepeat = 1;
@@ -59,7 +64,7 @@
             
             homebrew = {
               enable = true;
-              casks = [ "signal" ];
+              casks = [ "brave-browser" "linear-linear" "logitech-g-hub" "signal" ];
               #   brews = [ "trippy" ];
               #   caskArgs.no_quarantine = true;
               #   global.brewfile = true;
