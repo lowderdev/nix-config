@@ -39,6 +39,7 @@
               pkgs.spotify
               pkgs.tmux
               pkgs.vscode
+              pkgs.zoom-us
             ];
             environment.systemPath = [ "/opt/homebrew/bin" ];
             
@@ -64,7 +65,7 @@
             
             homebrew = {
               enable = true;
-              casks = [ "brave-browser" "linear-linear" "logitech-g-hub" "signal" ];
+              casks = [ "brave-browser" "linear-linear" "pop" "signal" ];
               #   brews = [ "trippy" ];
               #   caskArgs.no_quarantine = true;
               #   global.brewfile = true;
