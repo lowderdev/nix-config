@@ -65,7 +65,7 @@
             
             homebrew = {
               enable = true;
-              casks = [ "brave-browser" "linear-linear" "pop" "signal" ];
+              casks = [ "brave-browser" "linear-linear" "pop" "signal" "steam"];
               #   brews = [ "trippy" ];
               #   caskArgs.no_quarantine = true;
               #   global.brewfile = true;
