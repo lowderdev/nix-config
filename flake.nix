@@ -36,6 +36,7 @@
               pkgs.jq
               pkgs.lazygit
               pkgs.nixpkgs-fmt
+              pkgs.slack
               pkgs.spotify
               pkgs.tmux
               pkgs.vscode
