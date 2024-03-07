@@ -29,6 +29,7 @@
             environment.loginShell = pkgs.zsh;
             environment.pathsToLink = [ "/Applications" ];
             environment.systemPackages = [ 
+              pkgs.asdf-vm
               pkgs.discord
               pkgs.docker
               pkgs.git
