@@ -33,7 +33,7 @@
               pkgs.htop
               pkgs.jq
               pkgs.lazygit
-              pkgs.nixfmt
+              pkgs.nixpkgs-fmt
               pkgs.spotify
               pkgs.tmux
               pkgs.vscode
@@ -89,7 +89,7 @@
                   programs.zsh.enable = true;
                   programs.zsh.enableAutosuggestions = true;
                   programs.zsh.enableCompletion = true;
-                  programs.zsh.shellAliases = { ls = "ls --color=auto -F"; };
+                  programs.zsh.shellAliases = { ls = "ls --color=auto -aF"; };
                   programs.zsh.syntaxHighlighting.enable = true;
                   # programs.zsh.interactiveShellInit = ''
                   #   # This line includes asdf.sh in your zsh configuration
