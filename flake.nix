@@ -2,17 +2,16 @@
   description = "llowder nix config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-23.05-darwin";
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
-
-    home-manager.url = "github:nix-community/home-manager/master";
+    
+    home-manager.url = "github:nix-community/home-manager/release-23.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs: {
-    darwinConfigurations.llowder =
+    darwinConfigurations.P9XHQ9-fPeb =
       inputs.darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         
@@ -30,18 +29,14 @@
             environment.pathsToLink = [ "/Applications" ];
             environment.systemPackages = [ 
               pkgs.asdf-vm
-              pkgs.discord
-              pkgs.docker
               pkgs.git
               pkgs.htop
               pkgs.jq
               pkgs.lazygit
               pkgs.nixpkgs-fmt
-              pkgs.slack
               pkgs.spotify
               pkgs.tmux
               pkgs.vscode
-              pkgs.zoom-us
             ];
             environment.systemPath = [ "/opt/homebrew/bin" ];
             
@@ -67,7 +62,7 @@
             
             homebrew = {
               enable = true;
-              casks = [ "brave-browser" "docker" "linear-linear" "pop" "signal" "steam"];
+	      casks = [];
               #   brews = [ "trippy" ];
               #   caskArgs.no_quarantine = true;
               #   global.brewfile = true;
@@ -95,22 +90,6 @@
                   programs.zsh.enableAutosuggestions = true;
                   programs.zsh.enableCompletion = true;
                   programs.zsh.shellAliases = { ls = "ls --color=auto -F"; };
-                  programs.zsh.syntaxHighlighting.enable = true;
-                  programs.git = {
-                    enable = true;
-                    extraConfig = { init = { defaultBranch = "main"; }; };
-                    userName  = "Logan Lowder";
-                    userEmail = "loganlowder@gmail.com";
-                  };
-                  programs.ssh = {
-                    enable = true;
-                    extraConfig = ''
-                      Host github.com
-                        AddKeysToAgent yes
-                        UseKeychain yes
-                        IdentityFile ~/.ssh/id_ed25519
-                    '';
-                  };
                 })
               ];
             };
