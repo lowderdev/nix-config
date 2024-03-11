@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
-    
+
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -14,8 +14,8 @@
     darwinConfigurations.P9XHQ9-fPeb =
       inputs.darwin.lib.darwinSystem {
         system = "aarch64-darwin";
-        
-        pkgs = import inputs.nixpkgs { 
+
+        pkgs = import inputs.nixpkgs {
           system = "aarch64-darwin";
           config = { allowUnfree = true; };
         };
@@ -24,10 +24,10 @@
           ({ pkgs, ... }: {
             # backwards compatibility -- don't change
             system.stateVersion = 4;
-            
+
             environment.loginShell = pkgs.zsh;
             environment.pathsToLink = [ "/Applications" ];
-            environment.systemPackages = [ 
+            environment.systemPackages = [
               pkgs.asdf-vm
               pkgs.git
               pkgs.htop
@@ -39,13 +39,13 @@
               pkgs.vscode
             ];
             environment.systemPath = [ "/opt/homebrew/bin" ];
-            
+
             fonts.fonts = [ (pkgs.nerdfonts.override { fonts = [ "Hack" ]; }) ];
-            
+
             programs.zsh.enable = true;
-            
+
             services.nix-daemon.enable = true;
-            
+
             system.defaults.dock.autohide = true;
             system.defaults.finder.AppleShowAllExtensions = true;
             system.defaults.finder.ShowPathbar = true;
@@ -57,9 +57,9 @@
             system.defaults.NSGlobalDomain.KeyRepeat = 1;
             system.keyboard.enableKeyMapping = true;
             system.keyboard.remapCapsLockToEscape = true;
-            
+
             users.users.llowder.home = "/Users/llowder";
-            
+
             homebrew = {
               enable = true;
               casks = [ "fork" ];
