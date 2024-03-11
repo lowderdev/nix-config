@@ -2,11 +2,11 @@
   description = "llowder nix config";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-23.05-darwin";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
     
-    home-manager.url = "github:nix-community/home-manager/release-23.05";
+    home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -33,7 +33,7 @@
               pkgs.htop
               pkgs.jq
               pkgs.lazygit
-              pkgs.nixpkgs-fmt
+              pkgs.nixfmt
               pkgs.spotify
               pkgs.tmux
               pkgs.vscode
@@ -90,6 +90,11 @@
                   programs.zsh.enableAutosuggestions = true;
                   programs.zsh.enableCompletion = true;
                   programs.zsh.shellAliases = { ls = "ls --color=auto -F"; };
+                  programs.zsh.syntaxHighlighting.enable = true;
+                  # programs.zsh.interactiveShellInit = ''
+                  #   # This line includes asdf.sh in your zsh configuration
+                  #   . "$HOME/.asdf/asdf.sh"
+                  # '';
                 })
               ];
             };
