@@ -62,7 +62,7 @@
             
             homebrew = {
               enable = true;
-	      casks = [];
+              casks = [ "fork" ];
               #   brews = [ "trippy" ];
               #   caskArgs.no_quarantine = true;
               #   global.brewfile = true;
