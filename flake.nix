@@ -89,7 +89,10 @@
                   programs.zsh.enable = true;
                   programs.zsh.enableAutosuggestions = true;
                   programs.zsh.enableCompletion = true;
-                  programs.zsh.shellAliases = { ls = "ls --color=auto -aF"; };
+                  programs.zsh.shellAliases = {
+                    lg = "lazygit";
+                    ls = "ls --color=auto -aF";
+                  };
                   programs.zsh.syntaxHighlighting.enable = true;
                   # programs.zsh.interactiveShellInit = ''
                   #   # This line includes asdf.sh in your zsh configuration
