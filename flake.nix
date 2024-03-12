@@ -47,6 +47,15 @@
             services.nix-daemon.enable = true;
 
             system.defaults.dock.autohide = true;
+            # system.defaults.dock.persistent-apps = [
+            #   "/Applications/Chrome.app"
+            #   "/Applications/Nix Apps/Visual Studio Code.app"
+            #   "/Applications/Nix Apps/Spotify.app"
+            #   "/Applications/zoom.us"
+            #   "/Applications/Slack.app"
+            #   "/System/Applications/Utilities/Terminal.app"
+            #   "/Applications/System Settings.app"
+            # ];
             system.defaults.finder.AppleShowAllExtensions = true;
             system.defaults.finder.ShowPathbar = true;
             system.defaults.finder.ShowStatusBar = true;
