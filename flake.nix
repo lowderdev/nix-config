@@ -94,10 +94,10 @@
                     ls = "ls --color=auto -aF";
                   };
                   programs.zsh.syntaxHighlighting.enable = true;
-                  # programs.zsh.interactiveShellInit = ''
-                  #   # This line includes asdf.sh in your zsh configuration
-                  #   . "$HOME/.asdf/asdf.sh"
-                  # '';
+                  programs.zsh.envExtra = ''
+                    # Make shims available, ie. the node executable
+                    export PATH="$PATH:/Users/llowder/.asdf/shims"
+                  '';
                 })
               ];
             };
