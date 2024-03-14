@@ -83,7 +83,7 @@
             homebrew = {
               enable = true;
               casks = [ "docker" "fork" ];
-              #   brews = [ "trippy" ];
+              brews = [ "bazelisk" ];
               #   caskArgs.no_quarantine = true;
               #   global.brewfile = true;
               #   masApps = { };
