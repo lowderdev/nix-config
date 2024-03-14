@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+
     darwin.url = "github:lnl7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -48,6 +49,7 @@
 
             services.nix-daemon.enable = true;
 
+            # dock
             system.defaults.dock.autohide = true;
             system.defaults.dock.persistent-apps = [
               "/Applications/Chrome.app"
@@ -59,7 +61,11 @@
               "/System/Applications/Utilities/Terminal.app"
               "/Applications/System Settings.app"
             ];
+
+            # finder
             system.defaults.finder.AppleShowAllExtensions = true;
+            system.defaults.finder.AppleShowAllFiles = true;
+            system.defaults.finder.FXPreferredViewStyle = "Nlsv";
             system.defaults.finder.ShowPathbar = true;
             system.defaults.finder.ShowStatusBar = true;
             system.defaults.finder._FXShowPosixPathInTitle = true;
@@ -106,7 +112,7 @@
                     ls = "ls --color=auto -aF";
                   };
                   programs.zsh.syntaxHighlighting.enable = true;
-                  programs.zsh.envExtra = ''
+                  programs.zsh.initExtra = ''
                     # Make shims available, ie. the node executable
                     export PATH="$PATH:/Users/llowder/.asdf/shims"
                   '';
