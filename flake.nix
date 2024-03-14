@@ -36,6 +36,7 @@
               pkgs.nixpkgs-fmt
               pkgs.rectangle
               pkgs.spotify
+              pkgs.tldr
               pkgs.tmux
               pkgs.vscode
             ];
