@@ -30,6 +30,7 @@
             environment.pathsToLink = [ "/Applications" ];
             environment.systemPackages = [
               pkgs.asdf-vm
+              pkgs.docker
               pkgs.git
               pkgs.htop
               pkgs.jq
@@ -81,7 +82,7 @@
 
             homebrew = {
               enable = true;
-              casks = [ "fork" ];
+              casks = [ "docker" "fork" ];
               #   brews = [ "trippy" ];
               #   caskArgs.no_quarantine = true;
               #   global.brewfile = true;
