@@ -43,7 +43,8 @@
             ];
             environment.systemPath = [ "/opt/homebrew/bin" ];
 
-            fonts.fonts = [ (pkgs.nerdfonts.override { fonts = [ "Hack" ]; }) ];
+            # fonts.fonts = [ (pkgs.nerdfonts.override { fonts = [ ]; }) ];
+            fonts.fonts = with pkgs; [ (nerdfonts.override { fonts = [ "DroidSansMono" "FiraCode" "Hack" ]; }) ];
 
             programs.zsh.enable = true;
 
