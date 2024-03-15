@@ -82,8 +82,8 @@
 
             homebrew = {
               enable = true;
-              casks = [ "docker" "fork" ];
               brews = [ "bazelisk" ];
+              casks = [ "brave-browser" "docker" "fork" ];
               #   caskArgs.no_quarantine = true;
               #   global.brewfile = true;
               #   masApps = { };
