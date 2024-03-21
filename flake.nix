@@ -84,10 +84,6 @@
               enable = true;
               brews = [ "bazelisk" ];
               casks = [ "brave-browser" "docker" "fork" ];
-              #   caskArgs.no_quarantine = true;
-              #   global.brewfile = true;
-              #   masApps = { };
-              #   taps = [ "fujiapple852/trippy" ];
             };
           })
 
