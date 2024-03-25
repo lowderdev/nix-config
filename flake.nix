@@ -33,6 +33,7 @@
               pkgs.docker
               pkgs.git
               pkgs.htop
+              pkgs.jetbrains.webstorm
               pkgs.jq
               pkgs.lazygit
               pkgs.nixpkgs-fmt
