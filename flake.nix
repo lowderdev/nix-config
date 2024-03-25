@@ -30,6 +30,7 @@
             environment.pathsToLink = [ "/Applications" ];
             environment.systemPackages = [
               pkgs.asdf-vm
+              pkgs.awscli2
               pkgs.docker
               pkgs.git
               pkgs.htop
