@@ -74,7 +74,7 @@
             homebrew = {
               enable = true;
               brews = [ "aws2-wrap" "bazelisk" ];
-              casks = [ "brave-browser" "docker" "fork" ];
+              casks = [ "brave-browser" "docker" "fork" "logseq" ];
             };
           })
 
