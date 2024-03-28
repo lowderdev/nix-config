@@ -34,15 +34,11 @@
               pkgs.docker
               pkgs.git
               pkgs.htop
-              pkgs.jetbrains.webstorm
               pkgs.jq
               pkgs.lazygit
               pkgs.nixpkgs-fmt
-              pkgs.rectangle
-              pkgs.spotify
               pkgs.tldr
               pkgs.tmux
-              pkgs.vscode
             ];
             environment.systemPath = [ "/opt/homebrew/bin" ];
 
@@ -74,7 +70,16 @@
             homebrew = {
               enable = true;
               brews = [ "aws2-wrap" "bazelisk" ];
-              casks = [ "brave-browser" "docker" "fork" "logseq" ];
+              casks = [
+                "brave-browser"
+                "docker"
+                "fork"
+                "logseq"
+                "rectangle"
+                "spotify"
+                "visual-studio-code"
+                "webstorm"
+              ];
             };
           })
 
