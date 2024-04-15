@@ -15,8 +15,8 @@
     darwinConfigurations.llowder =
       inputs.darwin.lib.darwinSystem {
         system = "aarch64-darwin";
-        
-        pkgs = import inputs.nixpkgs { 
+
+        pkgs = import inputs.nixpkgs {
           system = "aarch64-darwin";
           config = { allowUnfree = true; };
         };
@@ -25,34 +25,35 @@
           ({ pkgs, ... }: {
             # backwards compatibility -- don't change
             system.stateVersion = 4;
-            
+
             environment.loginShell = pkgs.zsh;
             environment.pathsToLink = [ "/Applications" ];
-            environment.systemPackages = [ 
+            environment.systemPackages = [
               pkgs.asdf-vm
-              pkgs.discord
               pkgs.docker
               pkgs.git
               pkgs.htop
               pkgs.jq
               pkgs.lazygit
               pkgs.nixpkgs-fmt
-              pkgs.slack
-              pkgs.spotify
+              pkgs.tldr
               pkgs.tmux
-              pkgs.vscode
-              pkgs.zoom-us
             ];
             environment.systemPath = [ "/opt/homebrew/bin" ];
-            
-            fonts.fonts = [ (pkgs.nerdfonts.override { fonts = [ "Hack" ]; }) ];
-            
+
+            # fonts.fonts = [ (pkgs.nerdfonts.override { fonts = [ ]; }) ];
+            fonts.fonts = with pkgs; [ (nerdfonts.override { fonts = [ "DroidSansMono" "FiraCode" "Hack" ]; }) ];
+
             programs.zsh.enable = true;
-            
+
             services.nix-daemon.enable = true;
-            
+
+            # dock
             system.defaults.dock.autohide = true;
+            # finder
             system.defaults.finder.AppleShowAllExtensions = true;
+            system.defaults.finder.AppleShowAllFiles = true;
+            system.defaults.finder.FXPreferredViewStyle = "Nlsv";
             system.defaults.finder.ShowPathbar = true;
             system.defaults.finder.ShowStatusBar = true;
             system.defaults.finder._FXShowPosixPathInTitle = true;
@@ -64,15 +65,28 @@
             system.keyboard.remapCapsLockToEscape = true;
             
             users.users.llowder.home = "/Users/llowder";
-            
+
             homebrew = {
               enable = true;
-              casks = [ "brave-browser" "docker" "fork" "linear-linear" "pop" "signal" "steam"];
-              #   brews = [ "trippy" ];
-              #   caskArgs.no_quarantine = true;
-              #   global.brewfile = true;
-              #   masApps = { };
-              #   taps = [ "fujiapple852/trippy" ];
+              brews = [];
+              casks = [
+                "brave-browser"
+                "discord"
+                "docker"
+                "fork"
+                "iterm2"
+                "kap"
+                "linear-linear"
+                "logseq"
+                "pop"
+                "rectangle"
+                "signal"
+                "slack"
+                "spotify"
+                "steam"
+                "visual-studio-code"
+                "zoom"
+              ];
             };
           })
 
@@ -94,7 +108,10 @@
                   programs.zsh.enable = true;
                   programs.zsh.enableAutosuggestions = true;
                   programs.zsh.enableCompletion = true;
-                  programs.zsh.shellAliases = { ls = "ls --color=auto -F"; };
+                  programs.zsh.shellAliases = {
+                    lg = "lazygit";
+                    ls = "ls --color=auto -aF";
+                  };
                   programs.zsh.syntaxHighlighting.enable = true;
                   programs.git = {
                     enable = true;
@@ -102,6 +119,10 @@
                     userName  = "Logan Lowder";
                     userEmail = "loganlowder@gmail.com";
                   };
+                  programs.zsh.initExtra = ''
+                    # Make shims available, ie. the node executable
+                    export PATH="$PATH:/Users/llowder/.asdf/shims"
+                  '';
                   programs.ssh = {
                     enable = true;
                     extraConfig = ''
