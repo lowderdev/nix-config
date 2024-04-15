@@ -74,6 +74,8 @@
                 "brave-browser"
                 "docker"
                 "fork"
+                "iterm2"
+                "kap"
                 "logseq"
                 "rectangle"
                 "spotify"
