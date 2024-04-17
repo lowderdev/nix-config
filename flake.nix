@@ -63,12 +63,12 @@
             system.defaults.NSGlobalDomain.KeyRepeat = 1;
             system.keyboard.enableKeyMapping = true;
             system.keyboard.remapCapsLockToEscape = true;
-            
+
             users.users.llowder.home = "/Users/llowder";
 
             homebrew = {
               enable = true;
-              brews = [];
+              brews = [ "llvm@16" ];
               casks = [
                 "brave-browser"
                 "discord"
@@ -116,7 +116,7 @@
                   programs.git = {
                     enable = true;
                     extraConfig = { init = { defaultBranch = "main"; }; };
-                    userName  = "Logan Lowder";
+                    userName = "Logan Lowder";
                     userEmail = "loganlowder@gmail.com";
                   };
                   programs.zsh.initExtra = ''
